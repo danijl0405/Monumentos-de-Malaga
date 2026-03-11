@@ -82,7 +82,7 @@ function bindEvents() {
       Swal.fire({
         icon: 'success',
         title: 'Sesion iniciada',
-        text: 'Ya puedes guardar favoritos en el navegador.',
+        text: 'Bienvenido!!',
         confirmButtonText: 'Aceptar'
       });
     } catch (error) {
@@ -334,7 +334,6 @@ function logout() {
   Swal.fire({
     icon: 'success',
     title: 'Sesion cerrada',
-    text: 'Los favoritos siguen guardados localmente para el usuario admin.',
     confirmButtonText: 'Aceptar'
   });
 }
