@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="app-shell bg-white">
+    <nav class="navbar navbar-dark bg-primary py-2">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 fs-2"><%= title %></span>
+        <div class="d-flex align-items-center">
+          <button id="authButton" type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal" aria-label="Abrir formulario de inicio de sesion">
+            Login
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-fluid flex-grow-1 px-0">
+      <div class="row g-0 page-layout">
+        <section class="col-12 col-lg-9 map-column">
+          <div id="map" aria-label="Mapa de monumentos"></div>
+        </section>
+
+        <aside class="col-12 col-lg-3 border-start bg-white sidebar-column">
+          <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom">
+            <div>
+              <h2 class="h6 mb-0">Listado de monumentos</h2>
+            </div>
+            <span id="monumentCount" class="badge rounded-pill text-bg-primary">0</span>
+          </div>
+          <div id="monumentList" class="list-group list-group-flush monument-list">
+            <div class="list-group-item text-muted">Cargando monumentos...</div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="app-footer bg-primary text-white text-center">
+      <%= footerText %>
+    </footer>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title fs-4" id="loginModalLabel">Iniciar sesion</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <form id="loginForm">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="username" class="form-label">Usuario</label>
+                <input id="username" name="username" type="text" class="form-control" autocomplete="username" placeholder="Introduce tu usuario" required />
+              </div>
+              <div>
+                <label for="password" class="form-label">Contrasena</label>
+                <input id="password" name="password" type="password" class="form-control" autocomplete="current-password" placeholder="Introduce tu contrasena" required />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>
